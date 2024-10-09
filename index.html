@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur PyInstaller</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .modules {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Convertisseur PyInstaller</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="files">Sélectionnez des fichiers Python (.py) :</label>
+        <input type="file" id="files" name="file" accept=".py" multiple required>
+
+        <div class="modules">
+            <h3>Sélectionnez les modules à inclure :</h3>
+            <label><input type="checkbox" name="modules" value="tkinter"> Tkinter</label><br>
+            <label><input type="checkbox" name="modules" value="numpy"> NumPy</label><br>
+            <label><input type="checkbox" name="modules" value="pandas"> Pandas</label><br>
+            <label><input type="checkbox" name="modules" value="requests"> Requests</label><br>
+        </div>
+
+        <label for="os">Choisissez le système d'exploitation :</label>
+        <select id="os" name="os">
+            <option value="macos_high_sierra">macOS High Sierra</option>
+            <option value="macos_latest">macOS Dernière Version</option>
+            <option value="windows">Windows 10</option>
+        </select>
+
+        <button type="submit">Convertir en exécutable</button>
+    </form>
+
+    <div id="status"></div>
+
+</body>
+</html>
